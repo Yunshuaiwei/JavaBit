@@ -6,7 +6,7 @@
  * @Date 2019/11/6 21:04
  * @Version 1.0
  **/
-public class DoubleListTest {
+public class DoubleListTest1 {
     public static void main(String[] args) {
         DoubleList list=new DoubleList();
         list.addLast(1);
@@ -23,23 +23,23 @@ public class DoubleListTest {
         System.out.println("hhhhh");
     }
 }
-class ListNode {
+class ListNode5 {
     public int data;
-    public ListNode prev;//前驱
-    public ListNode next;//后继
+    public ListNode5 prev;//前驱
+    public ListNode5 next;//后继
     //new ListNode(10);
-    public ListNode(int data) {
+    public ListNode5(int data) {
         this.data = data;
     }
 }
 
 class DoubleList {
-    public ListNode head;//头
-    public ListNode last;//尾巴
+    public ListNode5 head;//头
+    public ListNode5 last;//尾巴
 
     //头插法
     public void addFirst(int data) {
-        ListNode node = new ListNode(data);
+        ListNode5 node = new ListNode5(data);
         if(this.head==null){
             this.head=node;
             this.last=null;
@@ -51,7 +51,7 @@ class DoubleList {
     }
     //尾插法
     public void addLast(int data){
-        ListNode node=new ListNode(data);
+        ListNode5 node=new ListNode5(data);
         if(this.head==null){
             this.head=node;
             this.last=node;
@@ -63,7 +63,7 @@ class DoubleList {
     }
     //打印
     public void display(){
-        ListNode cur=this.head;
+        ListNode5 cur=this.head;
         if(this.head==null){
             return;
         }
@@ -75,7 +75,7 @@ class DoubleList {
     }
     //链表长度
     public int getLength(){
-        ListNode cur=this.head;
+        ListNode5 cur=this.head;
         int len=0;
         while(cur!=null){
             len++;
@@ -84,8 +84,8 @@ class DoubleList {
         return len;
     }
     //任意位置插入
-    private ListNode searchIndex(int index) {
-        ListNode cur=this.head;
+    private ListNode5 searchIndex(int index) {
+        ListNode5 cur=this.head;
         while(index>0){
             cur=cur.next;
             index--;
@@ -93,14 +93,14 @@ class DoubleList {
         return cur;
     }
     public void addIndex(int index, int data){
-        ListNode node=new ListNode(data);
+        ListNode5 node=new ListNode5(data);
         if(index<0||index>getLength()){
             return;
         }
         if(index==0){
             addFirst(data);
         }
-        ListNode listNode = searchIndex(index);
+        ListNode5 listNode = searchIndex(index);
         if(index==getLength()){
             addLast(data);
         }else{
@@ -114,7 +114,7 @@ class DoubleList {
     //返回要删除的数字
     public int remove(int key){
         int oldData=-1;
-        ListNode cur=this.head;
+        ListNode5 cur=this.head;
         while(cur!=null) {
             if (cur.data == key) {
                 oldData = cur.data;
@@ -138,7 +138,7 @@ class DoubleList {
     }
     //删除所有key
     public void removeAllKey(int key){
-        ListNode cur=this.head;
+        ListNode5 cur=this.head;
         while(cur!=null) {
             if (cur.data == key) {
                 if (cur == this.head) {
@@ -158,7 +158,7 @@ class DoubleList {
     }
     //clear()
     public void clearList(){
-        ListNode cur=this.head;
+        ListNode5 cur=this.head;
         while(cur!=null){
             if(cur.next!=null){
                 cur=cur.next;
