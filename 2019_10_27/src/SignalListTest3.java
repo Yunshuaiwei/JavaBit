@@ -331,4 +331,20 @@ class MySignalList4 {
         }
         return slow;
     }
+    //反转单链表
+//    public ListNode4 reverseList2(){
+//        ListNode4 cur=this.head;
+//        ListNode4 prev=null;
+//        ListNode4 newHead=null;
+//        while(cur!=null){
+//            ListNode4 curNext=cur.next;
+//            if(curNext==null){
+//                newHead = cur;
+//            }
+//            cur.next=prev;
+//            prev=cur;
+//            cur=curNext;
+//        }
+//        return newHead;
+//    }
 }
