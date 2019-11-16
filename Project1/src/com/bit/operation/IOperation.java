@@ -4,6 +4,9 @@ import com.bit.book.BookList;
 
 import java.util.Scanner;
 
+/**
+ * @author DELL
+ */
 public interface IOperation {
     Scanner scanner =new Scanner(System.in);
     /**

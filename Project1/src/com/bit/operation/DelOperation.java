@@ -14,7 +14,7 @@ public class DelOperation implements IOperation{
         for (; i <bookList.getSize(); i++) {
             if(name.equals(bookList.getBook(i).name)){
                 for (int j = i; j <bookList.getSize() ; j++) {
-                    bookList.setBooks(bookList.getSize(),bookList.getBook(bookList.getSize()+1));
+                    bookList.setBooks(j,bookList.getBook(j+1));
                 }
                 break;
             }

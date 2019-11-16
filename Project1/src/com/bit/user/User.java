@@ -10,7 +10,7 @@ public abstract class User{
     protected String name;
     protected  IOperation[] operations;
     /**
-     *
+     *菜单
      * @return
      */
     public abstract int menu();

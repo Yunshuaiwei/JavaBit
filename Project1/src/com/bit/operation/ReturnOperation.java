@@ -9,7 +9,7 @@ public class ReturnOperation implements IOperation{
     @Override
     public void work(BookList bookList) {
         System.out.println("请输入需要归还的书籍：");
-        String name=scanner.nextLine();
+        String name=scanner.next();
         int i = 0;
         for (; i <bookList.getSize() ; i++) {
             if(name.equals(bookList.getBook(i).name)){
