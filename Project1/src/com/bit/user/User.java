@@ -4,20 +4,22 @@ import com.bit.book.BookList;
 import com.bit.operation.IOperation;
 
 /**
- * @ProjectName JavaBit
- * @ClassName User
- * Description
- * @Auther YunSW
- * @Date 2019/11/16 11:27
- * @Version 1.0
- **/
+ * @author DELL
+ */
 public abstract class User{
     protected String name;
     protected  IOperation[] operations;
-
+    /**
+     *
+     * @return
+     */
     public abstract int menu();
-
+    /**
+     *
+     * @param choice
+     * @param bookList
+     */
     public void doOperation(int choice, BookList bookList){
-
+        operations[choice].work(bookList);
     }
 }

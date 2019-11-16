@@ -8,21 +8,34 @@ package com.bit.book;
  * @Date 2019/11/16 11:27
  * @Version 1.0
  **/
+
+/**
+ * @author DELL
+ */
 public class Book {
     public String name;
     public String author;
     public int price;
     public String type;
-    //是否借出
+    /**
+     * 标记书是否借出
+     */
     public boolean isBorrowed;
 
-    public Book(String name, String author, int price, String type, boolean isBorrowed) {
+    public Book(String name, String author, int price, String type) {
         this.name = name;
         this.author = author;
         this.price = price;
         this.type = type;
-        this.isBorrowed = isBorrowed;
     }
-    public Book(String name, String author, int price, String type) {
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", isBorrowed=" + ((isBorrowed)?",已经被借出":",未借出") +
+                '}';
     }
 }

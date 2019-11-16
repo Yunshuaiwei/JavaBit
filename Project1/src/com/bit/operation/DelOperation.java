@@ -3,16 +3,28 @@ package com.bit.operation;
 import com.bit.book.BookList;
 
 /**
- * @ProjectName JavaBit
- * @ClassName DelOperation
- * Description
- * @Auther YunSW
- * @Date 2019/11/16 11:32
- * @Version 1.0
- **/
+ * @author DELL
+ */
 public class DelOperation implements IOperation{
     @Override
     public void work(BookList bookList) {
-
+        System.out.println("请输入需要删除的书籍：");
+        String name=scanner.next();
+        int i = 0;
+        for (; i <bookList.getSize(); i++) {
+            if(name.equals(bookList.getBook(i).name)){
+                for (int j = i; j <bookList.getSize() ; j++) {
+                    bookList.setBooks(bookList.getSize(),bookList.getBook(bookList.getSize()+1));
+                }
+                break;
+            }
+        }
+        if(i>=bookList.getSize()){
+            System.out.println("没有此书！");
+            return ;
+        }
+        int size=bookList.getSize();
+        bookList.setSize(size-1);
+        System.out.println("书籍删除成功！");
     }
 }

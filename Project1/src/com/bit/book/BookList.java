@@ -17,7 +17,7 @@ public class BookList {
     /**
      * 有效数据个数
      */
-    public int size;
+    private int size;
     public BookList(){
         books[0]=new Book("三国演义","罗贯中",13,"小说");
         books[1]=new Book("红楼梦","曹雪芹",16,"小说");
