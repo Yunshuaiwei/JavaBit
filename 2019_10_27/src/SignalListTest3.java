@@ -19,8 +19,12 @@ public class SignalListTest3 {
         list4.display();
 
     }
-
-    //合并两个有序单链表
+    /**
+     * 合并两个有序单链表
+     * @param headA
+     * @param headB
+     * @return
+     */
     public static ListNode4 mergeTwoLists(ListNode4 headA,ListNode4 headB){
         ListNode4 node=new ListNode4(-1);
         ListNode4 tmp=node;
@@ -204,11 +208,15 @@ class MySignalList4 {
         ListNode4 fast=this.head;
         ListNode4 slow=this.head;
         while(k-1>0){
-            fast=fast.next;
-            k--;
+            if(fast.next!=null){
+                fast=fast.next;
+                k--;
+            }else{
+                return null;
+            }
         }
-        while(fast!=null&&fast.next!=null){
-            fast=fast.next.next;
+        while(fast.next!=null){
+            fast=fast.next;
             slow=slow.next;
         }
         return slow;
