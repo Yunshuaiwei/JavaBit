@@ -1,10 +1,10 @@
 import org.junit.Test;
 
 /**
- * @Auther
+ * @author DELL
  * @Date 2019/11/27 18:41
  **/
-public class TestDemo {
+public class DemoTest {
     public static void main(String[] args) {
 
     }
