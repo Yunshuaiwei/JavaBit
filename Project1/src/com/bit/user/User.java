@@ -15,7 +15,6 @@ public abstract class User{
      */
     public abstract int menu();
     /**
-     *
      * @param choice
      * @param bookList
      */
