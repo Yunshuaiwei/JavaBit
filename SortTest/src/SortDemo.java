@@ -34,7 +34,7 @@ public class SortDemo {
         }
     }
 
-    public void quickSort(int[] arr, int left, int right) {
+    public void quickSort1(int[] arr, int left, int right) {
         int l = left;
         int r = right;
         int pivot = arr[(l + r) / 2];
@@ -63,11 +63,42 @@ public class SortDemo {
             r--;
         }
         if (left < r) {
-            quickSort(arr, left, r);
+            quickSort1(arr, left, r);
         }
         if (right > l) {
-            quickSort(arr, l, right);
+            quickSort1(arr, l, right);
         }
+    }
+
+    public void quickSort(int[] arr, int left, int right) {
+//        int[] arr = {6, 8, 2, 1, 0, 3, 5, 4, 7, 9, 10};
+        if (left >= right) {
+            return;
+        }
+        int l = left;
+        int r = right;
+        int pivot = arr[r];
+        while (true) {
+            while (l <= r && arr[l] < pivot) {
+                l++;
+            }
+            while (l <= r && arr[r] > pivot) {
+                r--;
+            }
+            if (l >= r) {
+                break;
+            }
+            arr[l] ^= arr[r];
+            arr[r] ^= arr[l];
+            arr[l] ^= arr[r];
+
+        }
+        arr[l] ^= pivot;
+        pivot ^= arr[l];
+        arr[l] ^= pivot;
+        quickSort(arr, left, l - 1);
+        quickSort(arr, l + 1, right);
+
     }
 
 
