@@ -70,7 +70,7 @@ public class SortDemo {
         }
     }
 
-    public void quickSort(int[] arr, int left, int right) {
+    public void quickSort2(int[] arr, int left, int right) {
 //        int[] arr = {6, 8, 2, 1, 0, 3, 5, 4, 7, 9, 10};
         if (left >= right) {
             return;
@@ -96,10 +96,38 @@ public class SortDemo {
         arr[l] ^= pivot;
         pivot ^= arr[l];
         arr[l] ^= pivot;
-        quickSort(arr, left, l - 1);
-        quickSort(arr, l + 1, right);
-
+        quickSort2(arr, left, l - 1);
+        quickSort2(arr, l + 1, right);
     }
 
+    public void quickSort(int[] arr, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int l = left;
+        int r = right;
+        int pivot = arr[r];
+        while (true) {
+            while (arr[l] < pivot) {
+                l++;
+            }
+            while (arr[r] > pivot) {
+                r--;
+            }
+            if (l >= r) {
+                break;
+            }
+            arr[l] ^= arr[r];
+            arr[r] ^= arr[l];
+            arr[l] ^= arr[r];
+        }
+        arr[l] ^= pivot;
+        pivot ^= arr[l];
+        arr[l] ^= pivot;
+        quickSort(arr, left, r - 1);
+        quickSort(arr, l, right);
+
+
+    }
 
 }
