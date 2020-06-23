@@ -8,14 +8,14 @@ import java.util.Arrays;
  **/
 public class SortDemo {
     public static void main(String[] args) {
-        int[] arr = {6, 8, 2, 1, 0, 3, 5, 4, 7, 9, 10};
+        int[] arr = {6, 8, 2, 10, 1, 0, 3, 5, 4, 7, 9};
         SortDemo s = new SortDemo();
 //        s.bubbleSort(arr);
         s.quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
-    public void bubbleSort(int[] arr) {
+    public void bubbleSort1(int[] arr) {
         boolean flag = true;
         for (int i = 1; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i; j++) {
@@ -100,7 +100,56 @@ public class SortDemo {
         quickSort2(arr, l + 1, right);
     }
 
+    public void quickSort3(int[] arr, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int l = left;
+        int r = right;
+        int pivot = arr[r];
+        while (true) {
+            while (arr[l] < pivot) {
+                l++;
+            }
+            while (arr[r] > pivot) {
+                r--;
+            }
+            if (l >= r) {
+                break;
+            }
+            arr[l] ^= arr[r];
+            arr[r] ^= arr[l];
+            arr[l] ^= arr[r];
+        }
+        arr[l] ^= pivot;
+        pivot ^= arr[l];
+        arr[l] ^= pivot;
+        quickSort3(arr, left, r - 1);
+        quickSort3(arr, l, right);
+    }
+
+    public void bubbleSort(int[] arr) {
+        //int[] arr = {6, 8, 2, 1, 0, 3, 5, 4, 7, 9, 10};
+        boolean flag = true;
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    flag = false;
+                    arr[j] ^= arr[j + 1];
+                    arr[j + 1] ^= arr[j];
+                    arr[j] ^= arr[j + 1];
+                }
+            }
+            if (flag) {
+                break;
+            } else {
+                flag = true;
+            }
+        }
+    }
+
     public void quickSort(int[] arr, int left, int right) {
+        //int[] arr = {6, 8, 2, 10, 1, 0, 3, 5, 4, 7, 9};
         if (left >= right) {
             return;
         }
@@ -126,7 +175,6 @@ public class SortDemo {
         arr[l] ^= pivot;
         quickSort(arr, left, r - 1);
         quickSort(arr, l, right);
-
 
     }
 
