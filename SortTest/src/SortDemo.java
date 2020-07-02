@@ -8,10 +8,11 @@ import java.util.Arrays;
  **/
 public class SortDemo {
     public static void main(String[] args) {
-        int[] arr = {6, 8, 2, 10, 1, 0, 3, 5, 4, 7, 9};
+        int[] arr = {2, 1, 0, 4, 3};
         SortDemo s = new SortDemo();
 //        s.bubbleSort(arr);
-        s.quickSort(arr, 0, arr.length - 1);
+//        s.quickSort(arr, 0, arr.length - 1);
+        s.sortHeap(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -149,18 +150,18 @@ public class SortDemo {
     }
 
     public void quickSort(int[] arr, int left, int right) {
-        //int[] arr = {6, 8, 2, 10, 1, 0, 3, 5, 4, 7, 9};
+        //int[] arr = {6, 8, 2, 1, 0, 3, 5, 4, 7, 9};
         if (left >= right) {
             return;
         }
+        int pivot = arr[right];
         int l = left;
-        int r = right;
-        int pivot = arr[r];
-        while (true) {
-            while (arr[l] < pivot) {
+        int r = right - 1;
+        while (l <= r) {
+            while (l <= r && arr[l] < pivot) {
                 l++;
             }
-            while (arr[r] > pivot) {
+            while (l <= r && arr[r] > pivot) {
                 r--;
             }
             if (l >= r) {
@@ -170,12 +171,54 @@ public class SortDemo {
             arr[r] ^= arr[l];
             arr[l] ^= arr[r];
         }
-        arr[l] ^= pivot;
-        pivot ^= arr[l];
-        arr[l] ^= pivot;
-        quickSort(arr, left, r - 1);
-        quickSort(arr, l, right);
-
+        arr[l] ^= arr[right];
+        arr[right] ^= arr[l];
+        arr[l] ^= arr[right];
+        quickSort(arr, left, l - 1);
+        quickSort(arr, l + 1, right);
     }
+
+
+    /**
+     * 堆排序
+     *
+     * @return void
+     * @Param [arr]
+     **/
+    public void sortHeap(int[] arr) {
+        int temp = 0;
+        for (int i = arr.length / 2 - 1; i >= 0; i--) {
+            adjustHeap(arr, i, arr.length);
+        }
+        for (int i = arr.length - 1; i > 0; i--) {
+            temp = arr[i];
+            arr[i] = arr[0];
+            arr[0] = temp;
+            adjustHeap(arr, 0, i);
+        }
+    }
+
+    /**
+     * 调整堆
+     *
+     * @return void
+     * @Param [arr, i, length]
+     **/
+    public void adjustHeap(int arr[], int i, int length) {
+        int temp = arr[i];
+        for (int j = i * 2 + 1; j < length; j = j * 2 + 1) {
+            if (j + 1 < length && arr[j] < arr[j + 1]) {
+                j++;
+            }
+            if (arr[j] > temp) {
+                arr[i] = arr[j];
+                i = j;
+            } else {
+                break;
+            }
+        }
+        arr[i] = temp;
+    }
+
 
 }
