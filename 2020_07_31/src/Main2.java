@@ -32,8 +32,6 @@ public class Main2 {
             res = 0;
         } else if (By1 <= Ay2) {
             res = 0;
-        } else {
-            res = 1;
         }
         System.out.println(res);
     }
