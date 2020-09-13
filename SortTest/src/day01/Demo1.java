@@ -11,10 +11,10 @@ import java.util.Arrays;
 public class Demo1 {
     public static void main(String[] args) {
         int[] arr = new int[]{5, 3, 9, 1, 2, 6, 4, 7, 0, 8};
-//        insertSort(arr);
+        insertSort(arr);
 //        shellSort(arr);
 //        bubbleSort(arr);
-//        quickSort(arr, 0, arr.length - 1);
+        quickSort(arr, 0, arr.length - 1);
         heapSort(arr);
         System.out.println(Arrays.toString(arr));
     }
@@ -86,6 +86,12 @@ public class Demo1 {
         }
     }
 
+    /**
+     * @return void
+     * @Param
+     * @Date 0:06 2020/8/6
+     * @Description: 快速排序
+     **/
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {//递归跳出条件
             //划分区域
@@ -101,7 +107,7 @@ public class Demo1 {
      * @return int
      * @Param
      * @Date 23:28 2020/8/1
-     * @Description: //TODO
+     * @Description: 区间调整
      **/
     private static int partition(int[] arr, int low, int high) {
         int pivot = arr[low];
@@ -125,7 +131,12 @@ public class Demo1 {
         return low;
     }
 
-
+    /**
+     * @return void
+     * @Param
+     * @Date 0:07 2020/8/6
+     * @Description: 堆排序
+     **/
     public static void heapSort(int [] arr){
         buildMaxHeap(arr, arr.length-1);
         for (int i = arr.length-1; i >0 ; i--) {//n-1趟排序
@@ -174,7 +185,9 @@ public class Demo1 {
             }
         }
         arr[k] = tmp;
-
     }
+    
+
+
 
 }
