@@ -137,17 +137,18 @@ public class Demo1 {
      * @Date 0:07 2020/8/6
      * @Description: 堆排序
      **/
-    public static void heapSort(int [] arr){
-        buildMaxHeap(arr, arr.length-1);
-        for (int i = arr.length-1; i >0 ; i--) {//n-1趟排序
+    public static void heapSort(int[] arr) {
+        buildMaxHeap(arr, arr.length - 1);
+        for (int i = arr.length - 1; i > 0; i--) {//n-1趟排序
             //交换堆顶元素和最后一个元素
-            arr[0]^=arr[i];
-            arr[i]^=arr[0];
-            arr[0]^=arr[i];
+            arr[0] ^= arr[i];
+            arr[i] ^= arr[0];
+            arr[0] ^= arr[i];
             //将剩余的元素调整为堆
-            heapAdjust(arr,0,i-1);
+            heapAdjust(arr, 0, i - 1);
         }
     }
+
     /**
      * @return void
      * @Param
@@ -186,8 +187,6 @@ public class Demo1 {
         }
         arr[k] = tmp;
     }
-    
-
 
 
 }
